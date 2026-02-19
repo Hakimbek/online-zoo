@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'MontserratSemiBold';
+    src: url('../../assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --orange: #F58021;
+    --white: #FFFFFF;
+    --navy: #20113D;
+    --black: #000000;
+    --turquoise: #00A092;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'MontserratSemiBold', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 36px 30px 20px;
+    background-color: var(--orange);
+}
+
+.header__logo-button,
+.header__burger-button,
+.header__close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.header__menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 60px;
+    background-color: var(--navy);
+}
+
+.header__menu--active {
+    display: flex;
+}
+
+.header__menu-close-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px 35px 0 0;
+}
+
+.header__nav-list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__nav-list li {
+    list-style: none;
+    font-size: 18px;
+    color: var(--white);
+    text-transform: uppercase;
+    cursor: pointer;
+    line-height: 150%;
+}
