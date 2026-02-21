@@ -1,12 +1,11 @@
-const burgerBtn = document.querySelector('.header__burger-button');
-const closeBtn = document.querySelector('.header__close-button');
-const menu = document.querySelector('.header__menu');
+const mobileBurgerBtn = document.querySelector('.header__burger-btn');
+const mobileCloseBtn = document.querySelector('.header__close-btn');
+const mobileNav = document.querySelector('.header__mobile-nav');
 
-burgerBtn.addEventListener('click', () => {
-    console.log('click');
-    menu.classList.add('header__menu--active');
+mobileBurgerBtn.addEventListener('click', () => {
+    mobileNav.classList.add('header__mobile-nav--active');
 });
 
-closeBtn.addEventListener('click', () => {
-    menu.classList.remove('header__menu--active');
+mobileCloseBtn.addEventListener('click', () => {
+    mobileNav.classList.remove('header__mobile-nav--active');
 });
