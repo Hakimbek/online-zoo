@@ -1,0 +1,136 @@
+.map {
+    padding: 20px 0 53px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.map__title {
+    max-width: 300px;
+    padding: 0 10px;
+    margin: 0;
+    font-size: 26px;
+    text-align: center;
+    line-height: 150%;
+    font-family: 'MontserratRegular', sans-serif;
+    color: var(--navy);
+}
+
+.map__content {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.map__image {
+    width: 100%;
+}
+
+.map__animal {
+    position: absolute;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+
+.map__icon {
+    width: 55px;
+    height: 70px;
+}
+
+.map__icon--hover {
+    display: none;
+}
+
+.map__animal:hover .map__icon--default {
+    display: none;
+}
+
+.map__animal:hover .map__icon--hover {
+    display: block;
+}
+
+.map__animal--lion {
+    top: 62%;
+    left: 46%;
+}
+
+.map__animal--gorilla {
+    top: 70%;
+    left: 53%;
+}
+
+.map__animal--lemur {
+    top: 80%;
+    left: 60%;
+}
+
+.map__animal--panda {
+    top: 45%;
+    left: 75%;
+}
+
+.map__animal--tiger {
+    top: 73%;
+    left: 77%;
+}
+
+.map__animal--koala {
+    top: 85%;
+    left: 85%;
+}
+
+.map__animal--crocodile {
+    top: 61%;
+    left: 25%;
+}
+
+.map__animal--eagle {
+    top: 58%;
+    left: 15%;
+}
+
+@media (min-width: 640px) {
+    .map {
+        padding: 30px 0 100px 0;
+        gap: 50px;
+    }
+
+    .map__title {
+        max-width: 600px;
+        font-size: 42px;
+        text-transform: uppercase;
+        line-height: 150%;
+    }
+
+    .map__icon {
+        width: 62px;
+        height: 80px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .map {
+        gap: 30px;
+    }
+
+    .map__title {
+        font-size: 54px;
+        font-family: 'MontserratSemiBold', sans-serif;
+    }
+
+    .map__icon {
+        width: 120px;
+        height: 164px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .map {
+        width: 1400px;
+        margin: 0 auto;
+        padding: 40px 0 150px 0;
+        gap: 70px;
+    }
+}
