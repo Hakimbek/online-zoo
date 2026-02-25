@@ -1,0 +1,207 @@
+.contact {
+    padding: 0 0 80px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact__content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.contact__info {
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact__info-title {
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    font-family: 'MontserratRegular', sans-serif;
+    color: var(--turquoise);
+    text-transform: uppercase;
+}
+
+.contact__info-text {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    font-family: 'MontserratRegular', sans-serif;
+}
+
+.contact__form {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact__form-group label {
+    font-size: 18px;
+    line-height: 150%;
+    font-family: 'MontserratRegular', sans-serif;
+    cursor: pointer;
+}
+
+.contact__form-group label span {
+    color: var(--turquoise);
+}
+
+.contact__form-group input,
+.contact__form-group textarea {
+    padding: 12px 10px;
+    outline: none;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact__form-group input::placeholder,
+.contact__form-group textarea::placeholder {
+    font-size: 18px;
+    line-height: 150%;
+    font-family: 'MontserratRegular', sans-serif;
+    color: var(--gray);
+}
+
+.contact__form-group input:focus,
+.contact__form-group textarea:focus {
+    border: 1px solid var(--turquoise);
+    box-shadow: 0 4px 10px rgba(0, 160, 146, 0.3);
+}
+
+.contact__form-group input:user-invalid,
+.contact__form-group textarea:user-invalid {
+    border: 1px solid var(--orange);
+    box-shadow: 0 4px 10px rgba(245, 128, 33, 0.3);
+    background-color: rgba(245, 128, 33, 0.05);
+}
+
+.error-text {
+    display: none;
+    font-size: 15px;
+    font-family: 'MontserratRegular', sans-serif;
+    color: var(--orange);
+}
+
+.contact__form-group :user-invalid ~ .error-text {
+    display: block;
+}
+
+.contact__form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--turquoise);
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'MontserratRegular', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact__form-button:hover,
+.contact__form-button:active {
+    background-color: var(--dark-turquoise);
+}
+
+@media (min-width: 640px) {
+    .contact {
+        padding: 0 0 100px 0;
+        gap: 50px;
+    }
+
+    .contact__info {
+        padding: 0 20px;
+    }
+
+    .contact__info-title {
+        font-size: 54px;
+        font-family: 'MontserratSemiBold', sans-serif;
+    }
+
+    .contact__form {
+        padding: 0 20px;
+    }
+
+    .contact__form-group input,
+    .contact__form-group textarea {
+        padding: 17px 20px;
+    }
+
+    .contact__form-button {
+        margin: 20px auto 0 auto;
+        padding: 26px 53px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact__content {
+        margin: 0 auto;
+        width: 740px;
+    }
+
+    .contact__form-button {
+        padding: 26px 88px;
+        margin: 26px auto 0 0;
+        font-family: MontserratSemiBold, sans-serif;
+    }
+}
+
+@media (min-width: 1920px) {
+    .contact {
+        width: 1400px;
+        margin: 0 auto;
+        gap: 150px;
+    }
+
+    .contact__content {
+        margin: 0;
+        width: auto;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .contact__info {
+        width: 545px;
+        align-items: flex-start;
+        gap: 50px;
+        padding: 0;
+    }
+
+    .contact__form {
+        width: 680px;
+        padding: 0;
+    }
+
+    .contact__info-text {
+        text-align: start;
+    }
+
+    .contact__form-button {
+        padding: 26px 88px;
+        margin: 37px auto 0 0;
+    }
+}

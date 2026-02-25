@@ -1,1 +1,37 @@
-<p>contact page</p>
+<section class="contact">
+    <img src="../../assets/images/touch-the-animal.png" alt="Touch The Animal Image">
+    <div class="contact__content">
+        <div class="contact__info">
+            <h2 class="contact__info-title">Get in touch</h2>
+            <p class="contact__info-text">Whether you have a question, or would like to say hello, we're happy to hear
+                from you. Please use the form to send us a message and we'll get back to you as soon as we can. Whether
+                you have a question, or would like to say hello, we're happy to hear from you. Please use the form to
+                send us a message and we'll get back to you as soon as we can. </p>
+        </div>
+        <form action="#" class="contact__form" id="contact-form">
+            <div class="contact__form-group">
+                <label for="name"><span>*</span> Your Name</label>
+                <input required id="name" type="text" placeholder="First and last name">
+                <span class="error-text">This field is required</span>
+            </div>
+            <div class="contact__form-group">
+                <label for="email"><span>*</span> Your Email Address</label>
+                <input required id="email" type="email" placeholder="Enter your email">
+                <span class="error-text">This field is required</span>
+            </div>
+            <div class="contact__form-group">
+                <label for="subject"><span>*</span> Subject</label>
+                <input required id="subject" type="text" placeholder="Enter the subject">
+                <span class="error-text">This field is required</span>
+            </div>
+            <div class="contact__form-group">
+                <label for="message"><span>*</span> Message</label>
+                <textarea required id="message" cols="30" rows="10" placeholder="Enter your message"></textarea>
+                <span class="error-text">This field is required</span>
+            </div>
+            <button type="submit" class="contact__form-button">
+                Send message <img src="../../assets/icons/arrow-right.svg" alt="Right arrow icon">
+            </button>
+        </form>
+    </div>
+</section>
