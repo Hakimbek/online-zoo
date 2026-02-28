@@ -1,6 +1,6 @@
 const track = document.getElementById('pets-cards');
-// const prevBtn = document.getElementById('prevBtn');
-// const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('pets-prev-btn');
+const nextBtn = document.getElementById('pets-next-btn');
 const items = document.querySelectorAll('.pets__card');
 
 let currentIndex = 0;
@@ -10,44 +10,52 @@ let currentTranslate = 0;
 let prevTranslate = 0;
 
 function updatePosition() {
-    currentTranslate = currentIndex * -track.offsetWidth;
+    const step = items[0].offsetWidth + 20;
+    currentTranslate = currentIndex * -step;
     prevTranslate = currentTranslate;
     track.style.transition = 'transform 0.3s ease-out';
     track.style.transform = `translateX(${currentTranslate}px)`;
 }
 
-// nextBtn.addEventListener('click', () => {
-//     if (currentIndex < items.length - 1) currentIndex++;
-//     updatePosition();
-// });
-//
-// prevBtn.addEventListener('click', () => {
-//     if (currentIndex > 0) currentIndex--;
-//     updatePosition();
-// });
+nextBtn.addEventListener('click', () => {
+    if (currentIndex < items.length - 1) currentIndex++;
+    updatePosition();
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) currentIndex--;
+    updatePosition();
+});
 
 track?.addEventListener('mousedown', (e) => {
     isDragging = true;
     startPos = e.pageX;
-    track.style.transition = 'none'; // Disable transition while dragging
+    track.style.transition = 'none';
+    track.style.cursor = 'grabbing';
 });
 
 window.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
     const currentPosition = e.pageX;
     const diff = currentPosition - startPos;
-    currentTranslate = prevTranslate + diff;
-    track.style.transform = `translateX(${currentTranslate}px)`;
+    const liveTranslate = prevTranslate + diff;
+    track.style.transform = `translateX(${liveTranslate}px)`;
+    currentTranslate = liveTranslate;
 });
 
 window.addEventListener('mouseup', () => {
     if (!isDragging) return;
     isDragging = false;
+    track.style.cursor = 'grab';
 
     const movedBy = currentTranslate - prevTranslate;
 
-    if (movedBy < -100 && currentIndex < items.length - 1) currentIndex++;
-    if (movedBy > 100 && currentIndex > 0) currentIndex--;
+
+    if (movedBy < -100 && currentIndex < items.length - 1) {
+        currentIndex++;
+    } else if (movedBy > 100 && currentIndex > 0) {
+        currentIndex--;
+    }
 
     updatePosition();
 });
