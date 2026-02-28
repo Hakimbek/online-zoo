@@ -45,7 +45,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 36px 30px 20px;
+    padding: 30px 36px 23px 20px;
     background-color: var(--orange);
 }
 
@@ -55,7 +55,7 @@ body {
 
 .header__burger-btn,
 .header__close-btn {
-    padding: 0;
+    padding: 0 0 5px 0;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -63,7 +63,7 @@ body {
 }
 
 .header__mobile-nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -72,7 +72,7 @@ body {
     z-index: 100;
     display: none;
     flex-direction: column;
-    gap: 60px;
+    gap: 54px;
 }
 
 .header__mobile-nav--active {
@@ -82,7 +82,7 @@ body {
 .header__close-btn-wrapper {
     display: flex;
     justify-content: flex-end;
-    padding: 40px 35px 0 0;
+    margin: 48px 76px 0 0;
 }
 
 .header__list {
@@ -127,13 +127,22 @@ body {
 
 @media (min-width: 640px) {
     .header {
-        padding: 30px 47px 30px 20px;
+        padding: 30px 47px 23px 20px;
+    }
+
+    .header__burger-btn img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .header__list {
+        gap: 50px;
     }
 }
 
 @media (min-width: 1200px) {
     .header {
-        padding: 30px 100px;
+        padding: 30px 100px 22px 100px;
     }
 
     .header__burger-btn {
@@ -141,6 +150,7 @@ body {
     }
 
     .header__desktop-nav {
+        padding-bottom: 4px;
         display: flex;
         align-items: center;
         gap: 80px;
@@ -148,7 +158,7 @@ body {
 
     .header__list {
         flex-direction: row;
-        gap: 30px;
+        gap: 31px;
     }
 
     .header__link {
@@ -162,11 +172,11 @@ body {
 
 @media (min-width: 1920px) {
     .header {
-        padding: 30px 260px;
+        padding: 30px 260px 25px 260px ;
     }
 
     .header__desktop-nav {
-        gap: 67px;
+        gap: 70px;
     }
 
     .header__list {
@@ -194,14 +204,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .footer__logo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .footer__nav-list {
@@ -250,7 +260,7 @@ body {
 
 .footer__socials {
     display: flex;
-    gap: 30px;
+    gap: 50px;
 }
 
 .footer__socials img {
@@ -274,12 +284,13 @@ body {
 
 .footer__bottom-hr {
     width: 100%;
+    margin-top: 8px;
     border-bottom: 1px solid var(--white);
 }
 
 .footer__copyright-list {
     padding: 0;
-    margin: 0;
+    margin: 5px 0 0 0;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -297,7 +308,7 @@ body {
 
 @media (min-width: 640px) {
     .footer__top {
-        gap: 50px;
+        gap: 45px;
     }
 
     .footer__logo {
@@ -314,13 +325,13 @@ body {
     }
 
     .footer__donate-btn {
-        padding: 26px 35px;
+        padding: 22px 32px;
         text-transform: uppercase;
     }
 
     .footer__top-hr {
         display: block;
-        margin: 20px 0;
+        margin: 20px 0 27px 0;
     }
 
     .footer__bottom-hr {
