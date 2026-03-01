@@ -1292,8 +1292,13 @@ body {
     cursor: grabbing;
 }
 
+.thoughts__card-wrapper div:last-child {
+    display: none;
+}
+
 .thoughts__card {
     position: relative;
+    padding-bottom: 1px;
     width: 300px;
     background-color: var(--white);
     border-radius: 5px;
@@ -1351,6 +1356,194 @@ body {
 .thoughts__panda-image {
     width: 100%;
     height: auto;
+}
+
+.thoughts__nav {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .thoughts {
+        padding: 75px 0 0 0;
+    }
+
+    .thoughts__title {
+        width: 440px;
+        padding-left: 20px;
+        text-align: start;
+        font-size: 54px;
+    }
+
+    .thoughts__text {
+        font-size: 26px;
+        text-align: start;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        line-height: 130%;
+    }
+
+    .thoughts__cards {
+        padding: 0 20px;
+    }
+
+    .thoughts__card {
+        padding-top: 1px;
+        width: auto;
+    }
+
+    .thoughts__card-title {
+        margin: 50px auto 30px auto;
+    }
+
+    .thoughts__card-text {
+        width: 463px;
+        padding: 0 30px;
+    }
+
+    .thoughts__quote {
+        top: 0;
+        position: absolute;
+    }
+
+    .thoughts__button {
+        padding: 26px 81px;
+        margin: 50px 0 0 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .thoughts {
+        padding: 60px 0 0 0;
+        background-image: url("../../assets/images/bamboo-panda.png");
+        overflow: hidden;
+    }
+
+    .thoughts__title {
+        padding-left: 40px;
+    }
+
+    .thoughts__text {
+        width: 600px;
+        padding-left: 40px;
+    }
+
+    .thoughts__carousel {
+        margin-left: 100px;
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .thoughts__cards {
+        padding-left: 40px;
+        max-width: 100%;
+        gap: 30px;
+    }
+
+    .thoughts__card-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .thoughts__card-wrapper div:last-child {
+        display: block;
+    }
+
+    .thoughts__quote {
+        position: static;
+    }
+
+    .thoughts__card-title {
+        margin: 40px 0 20px 30px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .thoughts__card-text {
+        width: 415px;
+        margin: 0 0 0 20px;
+        padding-right: 50px;
+        text-align: left;
+    }
+
+    .thoughts__card-author {
+        padding-bottom: 15px;
+        margin-left: 50px;
+        text-align: left;
+    }
+
+    .thoughts__panda-image {
+        display: none;
+    }
+
+    .thoughts__nav {
+        display: flex;
+        justify-content: flex-end;
+        margin: 100px 40px 0 0;
+        gap: 55px;
+    }
+
+    .thoughts__nav button {
+        padding: 19px 17px;
+        background-color: transparent;
+        border: 1px solid var(--white);
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .thoughts__nav button span {
+        display: inline-block;
+        width: 25px;
+        height: 22px;
+        background-color: var(--white);
+        -webkit-mask: url('../../assets/icons/orange-arrow-right.svg') no-repeat center;
+        mask: url('../../assets/icons/orange-arrow-right.svg') no-repeat center / contain;
+        transition: background-color 0.3s ease;
+    }
+
+    .thoughts__nav button:first-child span {
+        rotate: 180deg;
+    }
+
+    .thoughts__nav button:hover {
+        background-color: var(--navy);
+    }
+
+    .thoughts__nav button:hover span {
+        background-color: var(--white);
+    }
+
+    .thoughts__button {
+        margin: 90px 0 100px 130px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .thoughts__carousel {
+        position: relative;
+        top: -350px;
+        left: 720px;
+    }
+
+    .thoughts__title {
+        padding-left: 260px;
+    }
+
+    .thoughts__text {
+        padding-left: 260px;
+    }
+
+    .thoughts__nav {
+        position: relative;
+        top: -290px;
+        left: -880px;
+        margin: 0;
+    }
+
+    .thoughts__button {
+        margin-left: 260px;
+    }
 }
 /* END OF THOUGHTS */
 
