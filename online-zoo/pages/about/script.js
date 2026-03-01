@@ -1,3 +1,7 @@
+function goToPage(path) {
+    window.location.href = path;
+}
+
 function initPetsCarousel() {
     const track = document.getElementById('pets-cards');
     const prevBtn = document.getElementById('pets-prev-btn');

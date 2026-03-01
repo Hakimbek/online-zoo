@@ -13,4 +13,8 @@ function initMobileMenu() {
     closeBtn?.addEventListener('click', closeMenu);
 }
 
+function goToPage(path) {
+    window.location.href = path;
+}
+
 initMobileMenu();
