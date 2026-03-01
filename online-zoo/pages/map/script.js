@@ -1,18 +1,3 @@
-function handleSubmit() {
-    document.addEventListener('submit', (e) => {
-        const form = e.target;
-
-        if (form.id === 'contact-form') {
-            if (!form.checkValidity()) {
-                e.preventDefault();
-            } else {
-                e.preventDefault();
-                form.reset();
-            }
-        }
-    });
-}
-
 function initMobileMenu() {
     const burgerBtn = document.querySelector('.header__burger-btn');
     const closeBtn = document.querySelector('.header__close-btn');
@@ -29,4 +14,3 @@ function initMobileMenu() {
 }
 
 initMobileMenu();
-handleSubmit();
