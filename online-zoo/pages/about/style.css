@@ -620,7 +620,7 @@ body {
     width: 100%;
     max-width: 800px;
     margin: auto;
-    overflow: hidden; /* Hides the extra items */
+    overflow: hidden;
     user-select: none;
 }
 
@@ -1244,6 +1244,115 @@ body {
     }
 }
 /* END OF FEED */
+
+/* THOUGHTS */
+.thoughts {
+    padding: 35px 0 0 0;
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.thoughts__title {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-family: 'MontserratRegular', sans-serif;
+}
+
+.thoughts__text {
+    margin: 22px 0 0 0;
+    padding: 0 20px;
+    font-size: 18px;
+    font-family: 'MontserratRegular', sans-serif;
+    line-height: 150%;
+    text-align: center;
+}
+
+.thoughts__carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    user-select: none;
+}
+
+.thoughts__cards {
+    margin: 40px 0 0 0;
+    display: flex;
+    gap: 20px;
+    padding: 0 10px;
+    transition: transform 0.3s ease-out;
+    cursor: grab;
+}
+
+.thoughts__cards:active {
+    cursor: grabbing;
+}
+
+.thoughts__card {
+    position: relative;
+    width: 300px;
+    background-color: var(--white);
+    border-radius: 5px;
+    color: var(--black);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.thoughts__card img {
+    padding-top: 45px;
+    padding-left: 40px;
+}
+
+.thoughts__card-title {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 0 20px;
+    font-size: 26px;
+    font-family: 'MontserratRegular', sans-serif;
+    text-align: center;
+}
+
+.thoughts__card-text {
+    margin: 0;
+    padding: 0 20px;
+    font-size: 18px;
+    font-family: 'MontserratRegular', sans-serif;
+    text-align: center;
+    line-height: 150%;
+}
+
+.thoughts__card-author {
+    font-size: 18px;
+    font-family: 'MontserratSemiBold', sans-serif;
+    margin: 50px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.thoughts__button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 85px auto 0 auto;
+    background-color: transparent;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 15px 47px;
+    color: var(--white);
+    font-size: 18px;
+    font-family: 'MontserratSemiBold', sans-serif;
+}
+
+.thoughts__panda-image {
+    width: 100%;
+    height: auto;
+}
+/* END OF THOUGHTS */
 
 /* FOOTER */
 .footer {
