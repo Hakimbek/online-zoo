@@ -648,6 +648,11 @@ body {
     border-radius: 5px;
     user-select: none;
     -webkit-user-select: none;
+    transition: all 0.3s ease;
+}
+
+.pets__card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .pets__card--hidden {
@@ -1351,6 +1356,13 @@ body {
     color: var(--white);
     font-size: 18px;
     font-family: 'MontserratSemiBold', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.thoughts__button:hover {
+    background-color: var(--navy);
+    color: var(--white);
 }
 
 .thoughts__panda-image {
