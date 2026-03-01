@@ -1,1 +1,272 @@
-<p>zoos page</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Khakim Bakhramov">
+    <meta name="description" content="Online ZOO">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="../../assets/icons/favicon.svg">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <title>Online ZOO</title>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+    <h1 class="header__title">Online ZOO</h1>
+
+    <!-- LOGO ICON -->
+    <a class="header__link" href="#" data-page="about">
+        <img src="../../assets/icons/zoo-dark.svg" alt="Logo of Online ZOO">
+    </a>
+    <!-- END OF LOGO ICON -->
+
+    <!-- BURGER ICON -->
+    <button class="header__burger-btn">
+        <img src="../../assets/icons/hamburger.svg" alt="Hamburger menu">
+    </button>
+    <!-- END OF BURGER ICON -->
+
+    <!-- MOBILE NAV MENU -->
+    <div class="header__mobile-nav">
+        <div class="header__close-btn-wrapper">
+            <button class="header__close-btn">
+                <img src="../../assets/icons/close.svg" alt="Hamburger menu">
+            </button>
+        </div>
+        <nav>
+            <ul class="header__list">
+                <li>
+                    <a class="header__link" href="../about/index.html" data-page="about">About</a>
+                </li>
+                <li>
+                    <a class="header__link" href="../map/index.html" data-page="map">Map</a>
+                </li>
+                <li>
+                    <a class="header__link" href="#" data-page="zoos">Zoos</a>
+                </li>
+                <li>
+                    <a class="header__link" href="../contact/index.html" data-page="contact">Contact us</a>
+                </li>
+                <li>
+                    <a class="header__link" target="_blank"
+                       href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1">Design</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- END OF MOBILE NAV MENU -->
+
+    <!-- DESKTOP NAV MENU -->
+    <div class="header__desktop-nav">
+        <nav>
+            <ul class="header__list">
+                <li>
+                    <a class="header__link" href="../about/index.html" data-page="about">About</a>
+                </li>
+                <li>
+                    <a class="header__link" href="../map/index.html" data-page="map">Map</a>
+                </li>
+                <li>
+                    <a class="header__link header__link--active" href="#" data-page="zoos">Zoos</a>
+                </li>
+                <li>
+                    <a class="header__link" href="../contact/index.html" data-page="contact">Contact us</a>
+                </li>
+                <li>
+                    <a class="header__link" target="_blank"
+                       href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1">Design</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__socials">
+            <a class="header__link" target="_blank" href="https://www.youtube.com/">
+                <img src="../../assets/icons/youtube.svg" alt="Logo of Youtube channel of Online ZOO">
+            </a>
+            <a class="header__link" target="_blank" href="https://www.instagram.com/?hl=en">
+                <img src="../../assets/icons/instagram.svg" alt="Logo of Instagram account of Online ZOO">
+            </a>
+            <a class="header__link" target="_blank" href="https://www.facebook.com/?locale=ru_RU">
+                <img src="../../assets/icons/facebook.svg" alt="Logo of Facebook page of Online ZOO">
+            </a>
+        </div>
+    </div>
+    <!-- END OF DESKTOP NAV MENU -->
+</header>
+<!-- END OF HEADER -->
+
+<main id="main">
+    <section class="animal__header">
+        <h2>live panda cams</h2>
+        <button class="animal__header-button">
+            DONATE NOW
+            <img src="../../assets/icons/arrow-right.svg" alt="Right Arrow icon">
+        </button>
+    </section>
+    <section class="gallery">
+        <div class="gallery__main">
+            <img id="main-preview" src="../../assets/images/panda-cam-1.png" alt="Featured Animal">
+        </div>
+        <p class="gallery-title">MORE LIVE VIEWS</p>
+        <div class="gallery__thumbs">
+            <button class="thumb-btn" onclick="previewImage(this)">
+                <img src="../../assets/images/panda-cam-1.png" alt="Panda">
+            </button>
+            <button class="thumb-btn" onclick="previewImage(this)">
+                <img src="../../assets/images/panda-cam-2.png" alt="Eagle">
+            </button>
+            <button class="thumb-btn" onclick="previewImage(this)">
+                <img src="../../assets/images/panda-cam-3.png" alt="Gorilla">
+            </button>
+        </div>
+        <button class="animal__gallery-button">
+            DONATE NOW
+            <img src="../../assets/icons/arrow-right.svg" alt="Right Arrow icon">
+        </button>
+    </section>
+    <section class="donation">
+        <div class="donation__top">
+            <h2 class="donation__top-title">Your donation makes a difference! </h2>
+            <p class="donation__top-text">The Online Zoo's animal webcams are some of the most famous on the internet.
+                Tune
+                in to watch your favourite
+                animals — live, 24/7!</p>
+        </div>
+        <div class="donation__bottom">
+            <h3 class="donation__bottom-title">Quick Donate</h3>
+            <button class="donation__button">
+                <span>$ Donation Amount</span>
+                <span>
+                    <img src="../../assets/icons/arrow-right.svg" alt="Right Arrow icon">
+                </span>
+            </button>
+        </div>
+    </section>
+    <section class="animal__fun-fact">
+        <h2 class="animal__name">did you know?</h2>
+        <p>Pandas are often seen eating in a relaxed sitting posture, with their hind legs stretched out before them.
+            They may appear sedentary, but they are skilled tree-climbers and efficient swimmers.</p>
+    </section>
+    <section class="animal__characteristics">
+        <img src="../../assets/images/sleeping-panda.png" alt="Sleeping panda">
+        <div>
+            <div>
+                <p>Common name:</p>
+                <p>Giant Panda</p>
+            </div>
+            <div>
+                <p>Scientific name:</p>
+                <p>Ailuropoda melanoleuca</p>
+            </div>
+            <div>
+                <p>Type:</p>
+                <p>Herbivore</p>
+            </div>
+            <div>
+                <p>Size:</p>
+                <p>4 to 5 feet</p>
+            </div>
+            <div>
+                <p>Diet:</p>
+                <p>Omnivore</p>
+            </div>
+            <div>
+                <p>Habitat:</p>
+                <p>Forests</p>
+            </div>
+            <div>
+                <p>Range:</p>
+                <p>Eastern Asia</p>
+                <button onclick="goToPage('../map/index.html')">VIEW MAP<span></span></button>
+            </div>
+        </div>
+    </section>
+    <section class="animal__description">
+        <p>Giant pandas are very unusual animals that eat almost exclusively bamboo, which is very low in nutrients.
+            Because of this, they have many unique adaptations for their low-energy lifestyle. Giant pandas are
+            solitary. They have a highly developed sense of smell that males use to avoid each other and to find females
+            for mating in the spring. After a five-month pregnancy, females give birth to a cub or two, though they
+            cannot care for both twins. The blind infants weigh only 5 ounces at birth and cannot crawl until they reach
+            three months of age. They are born white, and develop their much loved coloring later. Habitat loss is the
+            primary threat to this species. Its popularity around the world has helped the giant panda become the focus
+            of successful conservation programs.</p>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer__top">
+        <!-- FOOTER LOGO -->
+        <div class="footer__logo">
+            <a class="footer__link" href="#" data-page="about">
+                <img src="../../assets/icons/zoo-white.svg" alt="Logo of Online ZOO">
+            </a>
+            <a class="footer__link" target="_blank" href="#">
+                <img src="../../assets/icons/yem-digital.svg" alt="Logo of Yem Digital">
+            </a>
+            <a class="footer__link" target="_blank" href="https://rs.school/">
+                <img src="../../assets/icons/rs-school.svg" alt="Logo of RSSchool">
+            </a>
+        </div>
+        <!-- END OF FOOTER LOGO -->
+
+        <!-- FOOTER NAV -->
+        <ul class="footer__nav-list">
+            <li>
+                <a class="footer__nav-link" href="../about/index.html" data-page="about">About</a>
+            </li>
+            <li>
+                <a class="footer__nav-link" href="../map/index.html" data-page="map">Map</a>
+            </li>
+            <li>
+                <a class="footer__nav-link" href="#" data-page="zoos">Zoos</a>
+            </li>
+            <li>
+                <a class="footer__nav-link" href="../contact/index.html" data-page="contact">Contact us</a>
+            </li>
+        </ul>
+        <!-- END OF FOOTER NAV -->
+
+        <button class="footer__donate-btn">
+            Donate for volunteers
+            <img src="../../assets/icons/arrow-right.svg" alt="Right Arrow">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="footer__top-hr"></div>
+
+        <!-- FOOTER SOCIALS -->
+        <div class="footer__socials">
+            <a class="header__link" target="_blank" href="https://www.youtube.com/">
+                <img src="../../assets/icons/youtube.svg" alt="Logo of Youtube channel of Online ZOO">
+            </a>
+            <a class="header__link" target="_blank" href="https://www.instagram.com/?hl=en">
+                <img src="../../assets/icons/instagram.svg" alt="Logo of Instagram account of Online ZOO">
+            </a>
+            <a class="header__link" target="_blank" href="https://www.facebook.com/?locale=ru_RU">
+                <img src="../../assets/icons/facebook.svg" alt="Logo of Facebook page of Online ZOO">
+            </a>
+        </div>
+        <!-- END OF FOOTER SOCIALS -->
+
+        <div class="footer__bottom-hr"></div>
+
+        <!-- FOOTER COPYRIGHT -->
+        <ul class="footer__copyright-list">
+            <li>
+                <a class="footer__copyright-link" target="_blank" href="#">© 2021 DinaK</a>
+            </li>
+            <li>
+                <a class="footer__copyright-link" target="_blank" href="#">© Yem Digital</a>
+            </li>
+            <li>
+                <a class="footer__copyright-link" target="_blank" href="https://rs.school/">© RSSchool</a>
+            </li>
+        </ul>
+        <!-- END OF FOOTER COPYRIGHT -->
+    </div>
+</footer>
+<!-- END OF FOOTER -->
+</body>
+</html>
