@@ -33,10 +33,15 @@
     --gray: #969696;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'MontserratSemiBold', sans-serif;
 }
 
@@ -101,11 +106,11 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     line-height: 150%;
+    transition: color 0.3s ease;
 }
 
 .header__link:hover {
     color: var(--turquoise);
-    transition: all 0.3s ease;
 }
 
 .header__desktop-nav {
@@ -209,7 +214,7 @@ body {
 
 .map__content {
     position: relative;
-    display: inline-block;
+    display: block;
     width: 100%;
 }
 
@@ -221,9 +226,12 @@ body {
     position: absolute;
     cursor: pointer;
     transform: translate(-50%, -50%);
+    width: 55px;
+    height: 70px;
 }
 
 .map__icon {
+    display: block;
     width: 55px;
     height: 70px;
 }
@@ -294,6 +302,11 @@ body {
         margin-bottom: 20px;
     }
 
+    .map__animal {
+        width: 100px;
+        height: 100px;
+    }
+
     .map__icon {
         width: 100px;
         height: 100px;
@@ -309,6 +322,11 @@ body {
         font-size: 54px;
         font-family: 'MontserratSemiBold', sans-serif;
         margin-bottom: 0;
+    }
+
+    .map__animal {
+        width: 200px;
+        height: 200px;
     }
 
     .map__icon {
@@ -370,11 +388,11 @@ body {
     text-decoration: none;
     line-height: 150%;
     font-family: 'MontserratSemiBold', sans-serif;
+    transition: color 0.3s ease;
 }
 
 .footer__nav-link:hover {
     color: var(--turquoise);
-    transition: all 0.3s ease;
 }
 
 .footer__donate-btn {
