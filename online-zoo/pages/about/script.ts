@@ -1,76 +1,88 @@
-function initCarousel(cardsId: string, prevButton: string, nextButton: string, cardSelector: string): void {
-    const track = document.getElementById(cardsId);
-    const prevBtn = document.getElementById(prevButton);
-    const nextBtn = document.getElementById(nextButton);
-    const items: NodeListOf<HTMLElement> = document.querySelectorAll(cardSelector);
+interface ICarouselItem {
+    readonly id: number;
+    readonly name: string;
+    readonly commonName: string;
+    readonly description: string;
+}
 
-    let currentIndex = 0;
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
+type CarouselData = {
+    data: Array<ICarouselItem>;
+};
 
-    function updatePosition(): void {
-        const step = items[0].offsetWidth + 20;
-        currentTranslate = currentIndex * -step;
-        prevTranslate = currentTranslate;
+const createCardHTML = (item: ICarouselItem, isHidden: boolean = false): string => `
+    <div class="pets__card ${isHidden ? 'pets__card--hidden' : ''}" onclick="goToPage('../zoos/index.html')">
+        <img src="../../assets/images/koala.png" alt="${item.commonName} Image">
+        <span class="pets__card-name">${item.name}</span>
+        <h2 class="pets__card-title">${item.commonName}</h2>
+        <p class="pets__card-text">${item.description}</p>
+        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
+    </div>
+`;
 
-        if (track) {
-            track.style.transition = 'transform 0.3s ease-out';
-            track.style.transform = `translateX(${currentTranslate}px)`;
-        }
+async function initInfiniteCarousel(
+    trackId: string,
+    prevId: string,
+    nextId: string,
+    apiUrl: string
+): Promise<void> {
+    const track = document.getElementById(trackId) as HTMLDivElement | null;
+    const prevBtn = document.getElementById(prevId) as HTMLButtonElement | null;
+    const nextBtn = document.getElementById(nextId) as HTMLButtonElement | null;
+
+    if (!track) return;
+
+    const response = await fetch(apiUrl);
+    const data: CarouselData = await response.json();
+    const arrayOfItems = data.data;
+
+    const wrappersData: ICarouselItem[][] = [];
+
+    for (let i = 0; i < arrayOfItems.length; i += 2) {
+        wrappersData.push(arrayOfItems.slice(i, i + 2));
     }
 
-    nextBtn?.addEventListener('click', () => {
-        if (currentIndex < items.length - 1) currentIndex++;
-        updatePosition();
-    });
+    const lastWrapper = wrappersData[wrappersData.length - 1];
+    const firstWrapper = wrappersData[0];
+    const combinedWrappers = [lastWrapper, ...wrappersData, firstWrapper];
 
-    prevBtn?.addEventListener('click', () => {
-        if (currentIndex > 0) currentIndex--;
-        updatePosition();
-    });
+    track.innerHTML = combinedWrappers.map(wrapper => `
+        <div class="pets__card-wrapper">
+            ${createCardHTML(wrapper[0])}
+            ${wrapper[1] ? createCardHTML(wrapper[1], true) : ''}
+        </div>
+    `).join('');
 
-    track?.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startPos = e.pageX;
-        track.style.transition = 'none';
-        track.style.cursor = 'grabbing';
-    });
+    const wrappers = track.querySelectorAll('.pets__card-wrapper') as NodeListOf<HTMLElement>;
+    const gap = 20;
+    let step = 0;
+    let currentIndex = 1;
+    let isTransitioning = false;
 
-    window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        const currentPosition = e.pageX;
-        const diff = currentPosition - startPos;
-        const liveTranslate = prevTranslate + diff;
+    setTimeout(() => {
+        step = wrappers[0].offsetWidth + gap;
+        track.style.transform = `translateX(${-step * currentIndex}px)`;
+    }, 0);
 
-        if (track) {
-            track.style.transform = `translateX(${liveTranslate}px)`;
+    const moveToIndex = (index: number, animate: boolean = true): void => {
+        if (isTransitioning && animate) return;
+
+        track.style.transition = animate ? 'transform 0.4s ease-out' : 'none';
+        track.style.transform = `translateX(${-step * index}px)`;
+        currentIndex = index;
+        isTransitioning = animate;
+    };
+
+    nextBtn?.addEventListener('click', (): void => moveToIndex(currentIndex + 1));
+    prevBtn?.addEventListener('click', (): void => moveToIndex(currentIndex - 1));
+
+    track.addEventListener('transitionend', (): void => {
+        isTransitioning = false;
+        if (currentIndex === wrappers.length - 1) {
+            moveToIndex(1, false);
+        } else if (currentIndex === 0) {
+            moveToIndex(wrappers.length - 2, false);
         }
-
-        currentTranslate = liveTranslate;
-    });
-
-    window.addEventListener('mouseup', () => {
-        if (!isDragging) return;
-        isDragging = false;
-
-        if (track) {
-            track.style.cursor = 'grab';
-        }
-
-        const movedBy = currentTranslate - prevTranslate;
-
-
-        if (movedBy < -100 && currentIndex < items.length - 1) {
-            currentIndex++;
-        } else if (movedBy > 100 && currentIndex > 0) {
-            currentIndex--;
-        }
-
-        updatePosition();
     });
 }
 
-initCarousel('pets-cards', 'pets-prev-btn', 'pets-next-btn', '.pets__card');
-initCarousel('thoughts-cards', 'thoughts-prev-btn', 'thoughts-next-btn', '.thoughts__card');
+initInfiniteCarousel('pets-cards', 'pets-prev-btn', 'pets-next-btn', 'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/pets');

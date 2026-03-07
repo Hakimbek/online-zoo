@@ -1,3 +1,3 @@
-function goToPage(path: string): void {
-    window.location.href = path;
-}
+(window as any).goToPage = (url: string): void => {
+    window.location.href = url;
+};

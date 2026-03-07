@@ -808,6 +808,7 @@ body {
 @media (min-width: 1200px) {
     .pets {
         margin-bottom: 150px;
+        overflow-x: hidden;
     }
 
     .pets__title {
@@ -858,7 +859,7 @@ body {
     }
 
     .pets__carousel {
-        margin: 0;
+        margin: 0 0 0 40px;
         width: 100%;
         max-width: 100%;
     }
@@ -904,6 +905,10 @@ body {
 
     .pets__nav {
         margin-bottom: 45px;
+    }
+
+    .pets__carousel {
+        margin: 0 0 0 260px;
     }
 
     .pets__cards {
@@ -963,7 +968,7 @@ body {
     }
 
     .touche-the-animal img {
-        width: auto;
+        width: 100%;
         height: auto;
     }
 }
@@ -971,6 +976,11 @@ body {
 @media (min-width: 1920px) {
     .touche-the-animal {
         margin: 146px 0 154px 0;
+    }
+
+    .touche-the-animal img {
+        width: auto;
+        height: auto;
     }
 }
 

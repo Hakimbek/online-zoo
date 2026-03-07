@@ -1,4 +1,4 @@
 "use strict";
-function goToPage(path) {
-    window.location.href = path;
-}
+window.goToPage = (url) => {
+    window.location.href = url;
+};
