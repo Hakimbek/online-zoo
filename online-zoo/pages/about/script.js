@@ -22,11 +22,25 @@ function initInfiniteCarousel(trackId, prevId, nextId, apiUrl) {
         const track = document.getElementById(trackId);
         const prevBtn = document.getElementById(prevId);
         const nextBtn = document.getElementById(nextId);
+        const loader = document.getElementById('pets-loader');
         if (!track)
             return;
-        const response = yield fetch(apiUrl);
-        const data = yield response.json();
-        const arrayOfItems = data.data;
+        let arrayOfItems;
+        try {
+            const response = yield fetch(apiUrl);
+            if (!response.ok)
+                throw new Error();
+            const data = yield response.json();
+            arrayOfItems = data.data;
+        }
+        catch (_a) {
+            if (loader) {
+                loader.textContent = 'Something went wrong. Please, refresh the page!';
+                loader.classList.add('pets__loader--error');
+            }
+            return;
+        }
+        loader === null || loader === void 0 ? void 0 : loader.classList.add('pets__loader--hidden');
         const wrappersData = [];
         for (let i = 0; i < arrayOfItems.length; i += 2) {
             wrappersData.push(arrayOfItems.slice(i, i + 2));

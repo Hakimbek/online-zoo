@@ -28,12 +28,28 @@ async function initInfiniteCarousel(
     const track = document.getElementById(trackId) as HTMLDivElement | null;
     const prevBtn = document.getElementById(prevId) as HTMLButtonElement | null;
     const nextBtn = document.getElementById(nextId) as HTMLButtonElement | null;
+    const loader = document.getElementById('pets-loader');
 
     if (!track) return;
 
-    const response = await fetch(apiUrl);
-    const data: CarouselData = await response.json();
-    const arrayOfItems = data.data;
+    let arrayOfItems: ICarouselItem[];
+
+    try {
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) throw new Error();
+
+        const data: CarouselData = await response.json();
+        arrayOfItems = data.data;
+    } catch {
+        if (loader) {
+            loader.textContent = 'Something went wrong. Please, refresh the page!';
+            loader.classList.add('pets__loader--error');
+        }
+        return;
+    }
+
+    loader?.classList.add('pets__loader--hidden');
 
     const wrappersData: ICarouselItem[][] = [];
 
