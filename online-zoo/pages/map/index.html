@@ -10,6 +10,7 @@
     <script type="module" src="script.js" defer></script>
     <script type="module" src="../../utils/navigate.js" defer></script>
     <script type="module" src="../../utils/initMobileNav.js" defer></script>
+    <script type="module" src="../../utils/initUserProfile.js" defer></script>
     <title>Online ZOO</title>
 </head>
 <body>
@@ -91,6 +92,10 @@
             <a class="header__link" target="_blank" href="https://www.facebook.com/?locale=ru_RU">
                 <img src="../../assets/icons/facebook.svg" alt="Logo of Facebook page of Online ZOO">
             </a>
+            <button class="user__icon-btn" id="user__icon-btn">
+                <img src="../../assets/icons/user.svg" alt="User Account Icon">
+                <p id="user-name">Hakim</p>
+            </button>
         </div>
     </div>
     <!-- END OF DESKTOP NAV MENU -->
@@ -98,6 +103,9 @@
 <!-- END OF HEADER -->
 
 <main id="main">
+    <div class="auth-popup__overlay" id="auth-popup__overlay"></div>
+    <section class="auth-popup" id="auth-popup"></section>
+
     <section class="map">
         <h2 class="map__title">Find where are the animals live</h2>
         <div class="map__content">
