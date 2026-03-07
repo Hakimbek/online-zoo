@@ -1575,7 +1575,7 @@ body {
     text-transform: uppercase;
     font-size: 26px;
     font-family: 'MontserratRegular', sans-serif;
-    color: var(--turquoise);;
+    color: var(--turquoise);
 }
 
 .love__text {
@@ -1728,6 +1728,10 @@ body {
     display: none;
 }
 
+.love__large-cards {
+    display: none;
+}
+
 @media (min-width: 640px) {
     .love {
         margin-top: 230px;
@@ -1772,6 +1776,7 @@ body {
     .love__button {
         padding: 26px 34px;
         margin: 105px auto 50px auto;
+        text-transform: uppercase;
     }
 }
 
