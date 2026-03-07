@@ -866,7 +866,7 @@ body {
 
     .pets__cards {
         width: 100%;
-        padding: 0 40px;
+        padding: 0;
     }
 
     .pets__card {
@@ -912,7 +912,7 @@ body {
     }
 
     .pets__cards {
-        padding: 0 260px;
+        padding: 0;
         gap: 40px;
     }
 

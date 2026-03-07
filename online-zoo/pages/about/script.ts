@@ -53,7 +53,7 @@ async function initInfiniteCarousel(
     `).join('');
 
     const wrappers = track.querySelectorAll('.pets__card-wrapper') as NodeListOf<HTMLElement>;
-    const gap = 20;
+    const gap = 40;
     let step = 0;
     let currentIndex = 1;
     let isTransitioning = false;
