@@ -99,7 +99,21 @@
 
 <main id="main">
     <section class="signin">
-        Sign in
+        <h2>Login</h2>
+        <form action="#" class="contact__form" id="contact-form">
+            <div class="contact__form-group">
+                <label for="login"><span>*</span> Login</label>
+                <input required id="login" type="text" placeholder="Login">
+                <span class="error-text"></span>
+            </div>
+            <div class="contact__form-group">
+                <label for="password"><span>*</span> Password</label>
+                <input required id="password" type="text" placeholder="Password">
+                <span class="error-text"></span>
+            </div>
+            <button type="button" id="submit-btn" class="contact__form-button" disabled>Login</button>
+        </form>
+        <p id="signin-error"></p>
     </section>
 </main>
 

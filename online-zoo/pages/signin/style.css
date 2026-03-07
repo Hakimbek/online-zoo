@@ -191,7 +191,119 @@ body {
 
 /* END OF HEADER */
 
+.signin {
+    padding: 50px 0 150px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
 
+.signin h2 {
+    font-size: 32px;
+    color: var(--navy);
+    font-family: 'MontserratSemiBold', sans-serif;
+    text-transform: uppercase;
+}
+
+.contact__form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact__form-group label {
+    font-size: 18px;
+    line-height: 150%;
+    font-family: 'MontserratRegular', sans-serif;
+    cursor: pointer;
+}
+
+.contact__form-group label span {
+    color: var(--turquoise);
+}
+
+.contact__form-group input {
+    width: 100%;
+    padding: 16px 10px;
+    outline: none;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact__form-group input::placeholder {
+    font-size: 18px;
+    line-height: 150%;
+    font-family: 'MontserratRegular', sans-serif;
+    color: var(--gray);
+}
+
+.input--error {
+    border: 1px solid #ff4d4d !important;
+    background-image: url('../../assets/icons/error.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.contact__form-group input:focus {
+    border: 1px solid var(--turquoise);
+    box-shadow: 0 4px 10px rgba(0, 160, 146, 0.3);
+}
+
+.error-text {
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-text.active {
+    display: block;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#signin-error {
+    font-family: 'MontserratSemiBold', sans-serif;
+    font-size: 22px;
+    color: #ff4d4d;
+}
+
+.contact__form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--turquoise);
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'MontserratRegular', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact__form-button:hover,
+.contact__form-button:active {
+    background-color: var(--dark-turquoise);
+}
 
 /* FOOTER */
 .footer {
