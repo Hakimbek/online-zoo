@@ -41,11 +41,11 @@ function initInfiniteCarousel(trackId, prevId, nextId, apiUrl) {
         </div>
     `).join('');
         const wrappers = track.querySelectorAll('.pets__card-wrapper');
-        const gap = 40;
         let step = 0;
         let currentIndex = 1;
         let isTransitioning = false;
         setTimeout(() => {
+            const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
             step = wrappers[0].offsetWidth + gap;
             track.style.transform = `translateX(${-step * currentIndex}px)`;
         }, 0);
