@@ -67,7 +67,7 @@
                     <a class="header__link" href="../about/index.html" data-page="about">About</a>
                 </li>
                 <li>
-                    <a class="header__link header__link--active" href="#" data-page="map">Map</a>
+                    <a class="header__link" href="../map/index.html" data-page="map">Map</a>
                 </li>
                 <li>
                     <a class="header__link" href="../zoos/index.html" data-page="zoos">Zoos</a>
@@ -98,8 +98,37 @@
 <!-- END OF HEADER -->
 
 <main id="main">
-    <section class="signin">
-        Sign up
+    <section class="signup">
+        <h2>Registration</h2>
+        <form action="#" class="contact__form" id="contact-form">
+            <div class="contact__form-group">
+                <label for="login"><span>*</span> Login</label>
+                <input required id="login" type="text" placeholder="Login">
+                <span class="error-text"></span>
+            </div>
+            <div class="contact__form-group">
+                <label for="name"><span>*</span> Name</label>
+                <input required id="name" type="text" placeholder="Name">
+                <span class="error-text"></span>
+            </div>
+            <div class="contact__form-group">
+                <label for="email"><span>*</span> Email</label>
+                <input required id="email" type="text" placeholder="Email">
+                <span class="error-text"></span>
+            </div>
+            <div class="contact__form-group">
+                <label for="password"><span>*</span> Password</label>
+                <input required id="password" type="text" placeholder="Password">
+                <span class="error-text"></span>
+            </div>
+            <div class="contact__form-group">
+                <label for="confirmPassword"><span>*</span> Confirm Password</label>
+                <input required id="confirmPassword" type="text" placeholder="Confirm Password">
+                <span class="error-text"></span>
+            </div>
+            <button type="button" id="submit-btn" class="contact__form-button" disabled>Login</button>
+        </form>
+        <p id="signup-error"></p>
     </section>
 </main>
 

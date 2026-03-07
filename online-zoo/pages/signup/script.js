@@ -8,19 +8,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const validateLogin = (login) => {
+const validateRegistrationLogin = (login) => {
     const loginRegex = /^[a-zA-Z][a-zA-Z]{2,}$/;
     return loginRegex.test(login);
 };
-const validatePassword = (password) => {
+const validateRegistrationPassword = (password) => {
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>|]/.test(password);
     return password.length >= 6 && hasSpecialChar;
 };
-function initFormValidation({ loginInput, passInput, submitBtn }) {
+const validateRegistrationName = (name) => {
+    const nameRegex = /^[a-zA-Z\s]{3,}$/;
+    return nameRegex.test(name.trim());
+};
+const validateRegistrationEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email.toLowerCase());
+};
+const confirmPassword = (pass1, pass2) => {
+    return pass1 === pass2;
+};
+function initRegistrationValidation(elements) {
+    const { nameInput, emailInput, loginInput, passInput, confirmPassInput, submitBtn } = elements;
     const validateForm = () => {
-        const isLoginValid = validateLogin(loginInput.value);
-        const isPassValid = validatePassword(passInput.value);
-        submitBtn.disabled = !(isLoginValid && isPassValid);
+        const isNameValid = validateRegistrationName(nameInput.value);
+        const isEmailValid = validateRegistrationEmail(emailInput.value);
+        const isLoginValid = validateRegistrationLogin(loginInput.value);
+        const isPassValid = validateRegistrationPassword(passInput.value);
+        submitBtn.disabled = !(isNameValid && isEmailValid && isLoginValid && isPassValid);
     };
     const setError = (input, message, isValid) => {
         const wrapper = input.parentElement;
@@ -46,34 +60,48 @@ function initFormValidation({ loginInput, passInput, submitBtn }) {
         }
     };
     loginInput.addEventListener('blur', () => {
-        setError(loginInput, "3+ English letters, starting with a letter", validateLogin(loginInput.value));
+        setError(loginInput, "3+ English letters, starting with a letter", validateRegistrationLogin(loginInput.value));
     });
     passInput.addEventListener('blur', () => {
-        setError(passInput, "6+ chars with at least 1 special character", validatePassword(passInput.value));
+        setError(passInput, "6+ chars with at least 1 special character", validateRegistrationPassword(passInput.value));
     });
-    [loginInput, passInput].forEach(input => {
-        input.addEventListener('focus', () => resetError(input));
+    confirmPassInput.addEventListener('blur', () => {
+        setError(confirmPassInput, "Passwords are not equal", confirmPassword(passInput.value, confirmPassInput.value));
     });
-    [loginInput, passInput].forEach(input => {
+    nameInput.addEventListener('blur', () => setError(nameInput, "3+ letters required", validateRegistrationName(nameInput.value)));
+    emailInput.addEventListener('blur', () => setError(emailInput, "Enter a valid email address", validateRegistrationEmail(emailInput.value)));
+    [nameInput, emailInput, loginInput, passInput, confirmPassInput].forEach(input => {
+        input.addEventListener('focus', () => {
+            var _a;
+            input.classList.remove('input--error');
+            const error = (_a = input.parentElement) === null || _a === void 0 ? void 0 : _a.querySelector('.error-text');
+            if (error)
+                error.textContent = '';
+        });
         input.addEventListener('input', validateForm);
     });
 }
-initFormValidation({
+initRegistrationValidation({
     loginInput: document.getElementById("login"),
+    emailInput: document.getElementById("email"),
+    nameInput: document.getElementById("name"),
     passInput: document.getElementById("password"),
-    submitBtn: document.getElementById("submit-btn")
+    confirmPassInput: document.getElementById("confirmPassword"),
+    submitBtn: document.getElementById("submit-btn"),
 });
-function handleSignIn(e, loginInput, passInput) {
+function handleSignUp(e, loginInput, passInput, nameInput, emailInput) {
     return __awaiter(this, void 0, void 0, function* () {
         e.preventDefault();
         const login = loginInput.value;
         const password = passInput.value;
-        const globalError = document.getElementById('signin-error');
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const globalError = document.getElementById('signup-error');
         try {
-            const response = yield fetch('https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/auth/login', {
+            const response = yield fetch('https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/auth/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ login, password })
+                body: JSON.stringify({ login, password, name, email })
             });
             const { message, data } = yield response.json();
             if (response.ok && (data === null || data === void 0 ? void 0 : data.access_token)) {
@@ -82,7 +110,7 @@ function handleSignIn(e, loginInput, passInput) {
             }
             else {
                 if (globalError) {
-                    globalError.textContent = message || 'Invalid login or password';
+                    globalError.textContent = message || 'Error, Please try again.';
                     globalError.classList.add('active');
                 }
             }
@@ -96,4 +124,4 @@ function handleSignIn(e, loginInput, passInput) {
         }
     });
 }
-document.getElementById("submit-btn").onclick = (e) => handleSignIn(e, document.getElementById("login"), document.getElementById("password"));
+document.getElementById("submit-btn").onclick = (e) => handleSignUp(e, document.getElementById("login"), document.getElementById("password"), document.getElementById("name"), document.getElementById("email"));

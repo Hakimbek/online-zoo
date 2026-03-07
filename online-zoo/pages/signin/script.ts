@@ -63,11 +63,11 @@ function initFormValidation({ loginInput, passInput, submitBtn }: IFormElements)
     });
 }
 
-const login = document.getElementById("login") as HTMLInputElement;
-const password = document.getElementById("password") as HTMLInputElement;
-const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
-
-initFormValidation({ loginInput: login, passInput: password, submitBtn: submitBtn });
+initFormValidation({
+    loginInput: document.getElementById("login") as HTMLInputElement,
+    passInput: document.getElementById("password") as HTMLInputElement,
+    submitBtn: document.getElementById("submit-btn") as HTMLButtonElement
+});
 
 interface IAuthResponse {
     readonly data?: {
@@ -84,7 +84,7 @@ async function handleSignIn(e: Event, loginInput: HTMLInputElement, passInput: H
     const globalError = document.getElementById('signin-error');
 
     try {
-        const response = await fetch('https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/auth/login\n', {
+        const response = await fetch('https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ login, password })
@@ -110,4 +110,8 @@ async function handleSignIn(e: Event, loginInput: HTMLInputElement, passInput: H
     }
 }
 
-submitBtn.onclick = (e) => handleSignIn(e, login, password);
+(document.getElementById("submit-btn") as HTMLButtonElement).onclick = (e) => handleSignIn(
+    e,
+    document.getElementById("login") as HTMLInputElement,
+    document.getElementById("password") as HTMLInputElement,
+);
