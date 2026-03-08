@@ -8,6 +8,21 @@ function previewImage(buttonElement: HTMLButtonElement): void {
     }
 }
 
+interface IPetDetails {
+    readonly id: number;
+    readonly commonName: string;
+    readonly scientificName: string;
+    readonly type: string;
+    readonly size: string;
+    readonly diet: string;
+    readonly habitat: string;
+    readonly range: string;
+    readonly latitude: string;
+    readonly longitude: string;
+    readonly description: string;
+    readonly detailedDescription: string;
+}
+
 interface ICarouselItem {
     readonly id: string;
     readonly petId: string;
@@ -16,6 +31,10 @@ interface ICarouselItem {
 
 interface ICarouselData {
     data: ICarouselItem[];
+}
+
+interface IPetData {
+    data: IPetDetails;
 }
 
 let verticalIndex: number = 0;
@@ -40,7 +59,7 @@ async function initVerticalCarousel(containerId: string, apiUrl: string): Promis
         totalItems = data.length;
 
         container.innerHTML = data.map(item => `
-            <div class="side-bar__card">
+            <div class="side-bar__card" data-id="${item.petId}">
                 <img src="../../assets/icons/${item.petId}.svg" alt="${item.text}">
                 <p class="side-bar-text">${item.text}</p>
             </div>
@@ -48,6 +67,22 @@ async function initVerticalCarousel(containerId: string, apiUrl: string): Promis
 
         updateCarouselButtons();
         initSidebarToggle();
+
+        const cards = container.querySelectorAll('.side-bar__card');
+
+        cards.forEach(card => {
+            const htmlCard = card as HTMLElement;
+            const petId = htmlCard.dataset.id || '';
+
+            htmlCard.addEventListener('click', () => handleCardClick(htmlCard, petId));
+        });
+
+        if (cards.length > 0) {
+            const firstCard = cards[0] as HTMLElement;
+            const firstPetId = firstCard.dataset.id || '';
+
+            handleCardClick(firstCard, firstPetId);
+        }
     } catch (error) {
         console.error("Carousel fetch failed:", error);
         container.innerHTML = `
@@ -115,3 +150,28 @@ document.addEventListener('DOMContentLoaded', () => {
         moveVertical('down', 'side-bar__cards')
     );
 });
+
+async function handleCardClick(cardElement: HTMLElement, petId: string): Promise<void> {
+    const allCards = document.querySelectorAll('.side-bar__card');
+    allCards.forEach(card => card.classList.remove('side-bar__card--selected'));
+
+    cardElement.classList.add('side-bar__card--selected');
+
+    try {
+        const response = await fetch(`https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/pets/${petId}`);
+        if (!response.ok) throw new Error("Failed to fetch pet details");
+
+        const petData: IPetData = await response.json();
+
+        renderPetDetails(petData.data);
+    } catch (error) {
+        console.error("Error loading pet:", error);
+    }
+}
+
+function renderPetDetails(pet: IPetDetails): void {
+    // TODO
+    // const mainTitle = document.getElementById('main-title');
+
+    // if (mainTitle) mainTitle.textContent = pet.commonName;
+}

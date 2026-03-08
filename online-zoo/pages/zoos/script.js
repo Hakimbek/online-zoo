@@ -34,13 +34,24 @@ function initVerticalCarousel(containerId, apiUrl) {
             const data = items.data;
             totalItems = data.length;
             container.innerHTML = data.map(item => `
-            <div class="side-bar__card">
+            <div class="side-bar__card" data-id="${item.petId}">
                 <img src="../../assets/icons/${item.petId}.svg" alt="${item.text}">
                 <p class="side-bar-text">${item.text}</p>
             </div>
         `).join('');
             updateCarouselButtons();
             initSidebarToggle();
+            const cards = container.querySelectorAll('.side-bar__card');
+            cards.forEach(card => {
+                const htmlCard = card;
+                const petId = htmlCard.dataset.id || '';
+                htmlCard.addEventListener('click', () => handleCardClick(htmlCard, petId));
+            });
+            if (cards.length > 0) {
+                const firstCard = cards[0];
+                const firstPetId = firstCard.dataset.id || '';
+                handleCardClick(firstCard, firstPetId);
+            }
         }
         catch (error) {
             console.error("Carousel fetch failed:", error);
@@ -98,3 +109,24 @@ document.addEventListener('DOMContentLoaded', () => {
     (_a = document.getElementById('sidebar-up')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => moveVertical('up', 'side-bar__cards'));
     (_b = document.getElementById('sidebar-down')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', () => moveVertical('down', 'side-bar__cards'));
 });
+function handleCardClick(cardElement, petId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const allCards = document.querySelectorAll('.side-bar__card');
+        allCards.forEach(card => card.classList.remove('side-bar__card--selected'));
+        cardElement.classList.add('side-bar__card--selected');
+        try {
+            const response = yield fetch(`https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/pets/${petId}`);
+            if (!response.ok)
+                throw new Error("Failed to fetch pet details");
+            const petData = yield response.json();
+            renderPetDetails(petData.data);
+        }
+        catch (error) {
+            console.error("Error loading pet:", error);
+        }
+    });
+}
+function renderPetDetails(pet) {
+    // const mainTitle = document.getElementById('main-title');
+    // if (mainTitle) mainTitle.textContent = pet.commonName;
+}
