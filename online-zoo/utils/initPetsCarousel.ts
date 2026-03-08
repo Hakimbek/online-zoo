@@ -13,7 +13,7 @@ type PetsCarouselData = {
 
 const createPetsCardHTML = (item: IPetItem, isHidden: boolean = false): string => `
     <div class="pets__card ${isHidden ? 'pets__card--hidden' : ''}" onclick="goToPage('../zoos/index.html')">
-        <img src="../../assets/images/koala.png" alt="${item.commonName} Image">
+        <img src="../../assets/images/${item.name}.png" alt="${item.commonName} Image">
         <span class="pets__card-name">${item.name}</span>
         <h2 class="pets__card-title">${item.commonName}</h2>
         <p class="pets__card-text">${item.description}</p>

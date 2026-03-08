@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const PETS_API_URL = 'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/pets';
 const createPetsCardHTML = (item, isHidden = false) => `
     <div class="pets__card ${isHidden ? 'pets__card--hidden' : ''}" onclick="goToPage('../zoos/index.html')">
-        <img src="../../assets/images/koala.png" alt="${item.commonName} Image">
+        <img src="../../assets/images/${item.name}.png" alt="${item.commonName} Image">
         <span class="pets__card-name">${item.name}</span>
         <h2 class="pets__card-title">${item.commonName}</h2>
         <p class="pets__card-text">${item.description}</p>
