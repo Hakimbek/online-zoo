@@ -93,6 +93,9 @@ async function initVerticalCarousel(containerId: string, apiUrl: string): Promis
                 </div>
             </div>
         `;
+
+        const funFact = document.getElementById('animal-fun-fact') as HTMLElement;
+        funFact.innerHTML = `<p>Something went wrong. Please, refresh the page</p>`;
     }
 }
 
@@ -170,8 +173,49 @@ async function handleCardClick(cardElement: HTMLElement, petId: string): Promise
 }
 
 function renderPetDetails(pet: IPetDetails): void {
-    // TODO
-    // const mainTitle = document.getElementById('main-title');
+    const funFact = document.getElementById('animal-fun-fact') as HTMLElement;
+    const animalDescription = document.getElementById('animal-description') as HTMLElement;
+    const animalCharacteristics = document.getElementById('animal-characteristics') as HTMLElement;
 
-    // if (mainTitle) mainTitle.textContent = pet.commonName;
+    funFact.innerHTML = `
+        <h2 class="animal__name">did you know?</h2>
+        <p>${pet.description}</p>
+    `;
+
+    animalCharacteristics.innerHTML = `
+        <img src="../../assets/images/sleeping-panda.png" alt="Sleeping panda">
+        <div>
+            <div>
+                <p>Common name:</p>
+                <p>${pet.commonName}</p>
+            </div>
+            <div>
+                <p>Scientific name:</p>
+                <p>${pet.scientificName}</p>
+            </div>
+            <div>
+                <p>Type:</p>
+                <p>${pet.type}</p>
+            </div>
+            <div>
+                <p>Size:</p>
+                <p>${pet.size}</p>
+            </div>
+            <div>
+                <p>Diet:</p>
+                <p>${pet.diet}</p>
+            </div>
+            <div>
+                <p>Habitat:</p>
+                <p>${pet.habitat}</p>
+            </div>
+            <div>
+                <p>Range:</p>
+                <p>${pet.range}</p>
+                <button onclick="goToPage('../map/index.html')">VIEW MAP<span></span></button>
+            </div>
+        </div>
+    `;
+
+    animalDescription.innerHTML = `<p>${pet.detailedDescription}</p>`;
 }

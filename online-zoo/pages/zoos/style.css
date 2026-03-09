@@ -273,7 +273,6 @@ body {
     position: absolute;
     top: 112px;
     width: 220px;
-    height: 3500px;
     transition: width 0.2s ease-in-out;
 }
 
