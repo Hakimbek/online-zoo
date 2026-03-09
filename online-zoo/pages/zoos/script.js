@@ -8,13 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-function previewImage(buttonElement) {
+window.previewImage = (buttonElement) => {
     const mainPreview = document.getElementById('main-preview');
     const smallImg = buttonElement.querySelector('img');
     if (mainPreview && smallImg) {
         mainPreview.src = smallImg.src;
     }
-}
+};
 let verticalIndex = 0;
 let totalItems = 0;
 function initVerticalCarousel(containerId, apiUrl) {
@@ -64,7 +64,13 @@ function initVerticalCarousel(containerId, apiUrl) {
             </div>
         `;
             const funFact = document.getElementById('animal-fun-fact');
+            const animalDescription = document.getElementById('animal-description');
+            const animalCharacteristics = document.getElementById('animal-characteristics');
+            const gallery = document.getElementById('gallery');
             funFact.innerHTML = `<p>Something went wrong. Please, refresh the page</p>`;
+            animalDescription.innerHTML = ``;
+            animalCharacteristics.innerHTML = ``;
+            gallery.innerHTML = ``;
         }
     });
 }
@@ -126,7 +132,13 @@ function handleCardClick(cardElement, petId) {
         catch (error) {
             console.error("Error loading pet:", error);
             const funFact = document.getElementById('animal-fun-fact');
+            const animalDescription = document.getElementById('animal-description');
+            const animalCharacteristics = document.getElementById('animal-characteristics');
+            const gallery = document.getElementById('gallery');
             funFact.innerHTML = `<p>Something went wrong. Please, refresh the page</p>`;
+            animalDescription.innerHTML = ``;
+            animalCharacteristics.innerHTML = ``;
+            gallery.innerHTML = ``;
         }
     });
 }
@@ -134,6 +146,28 @@ function renderPetDetails(pet) {
     const funFact = document.getElementById('animal-fun-fact');
     const animalDescription = document.getElementById('animal-description');
     const animalCharacteristics = document.getElementById('animal-characteristics');
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = `
+        <div class="gallery__main">
+            <img id="main-preview" src="../../assets/images/${pet.id}-cam-1.png" alt="Gallery main image">
+        </div>
+        <p class="gallery-title">MORE LIVE VIEWS</p>
+        <div class="gallery__thumbs">
+            <button class="thumb-btn" onclick="previewImage(this)">
+                <img src="../../assets/images/${pet.id}-cam-1.png" alt="Gallery image 1">
+            </button>
+            <button class="thumb-btn" onclick="previewImage(this)">
+                <img src="../../assets/images/${pet.id}-cam-2.png" alt="Gallery image 2">
+            </button>
+            <button class="thumb-btn" onclick="previewImage(this)">
+                <img src="../../assets/images/${pet.id}-cam-3.png" alt="Gallery image 3">
+            </button>
+        </div>
+        <button class="animal__gallery-button">
+            DONATE NOW
+            <img src="../../assets/icons/arrow-right.svg" alt="Right Arrow icon">
+        </button>
+    `;
     funFact.innerHTML = `
         <h2 class="animal__name">did you know?</h2>
         <p>${pet.description}</p>
