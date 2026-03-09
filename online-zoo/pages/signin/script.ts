@@ -110,8 +110,10 @@ async function handleSignIn(e: Event, loginInput: HTMLInputElement, passInput: H
     }
 }
 
-(document.getElementById("submit-btn") as HTMLButtonElement).onclick = (e) => handleSignIn(
-    e,
-    document.getElementById("login") as HTMLInputElement,
-    document.getElementById("password") as HTMLInputElement,
-);
+(document.getElementById("submit-btn") as HTMLButtonElement).onclick = (e): void => {
+    handleSignIn(
+        e,
+        document.getElementById("login") as HTMLInputElement,
+        document.getElementById("password") as HTMLInputElement,
+    );
+}

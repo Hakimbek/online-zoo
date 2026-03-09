@@ -169,6 +169,9 @@ async function handleCardClick(cardElement: HTMLElement, petId: string): Promise
         renderPetDetails(petData.data);
     } catch (error) {
         console.error("Error loading pet:", error);
+
+        const funFact = document.getElementById('animal-fun-fact') as HTMLElement;
+        funFact.innerHTML = `<p>Something went wrong. Please, refresh the page</p>`;
     }
 }
 

@@ -124,4 +124,6 @@ function handleSignUp(e, loginInput, passInput, nameInput, emailInput) {
         }
     });
 }
-document.getElementById("submit-btn").onclick = (e) => handleSignUp(e, document.getElementById("login"), document.getElementById("password"), document.getElementById("name"), document.getElementById("email"));
+document.getElementById("submit-btn").onclick = (e) => {
+    handleSignUp(e, document.getElementById("login"), document.getElementById("password"), document.getElementById("name"), document.getElementById("email"));
+};

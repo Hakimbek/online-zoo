@@ -125,6 +125,8 @@ function handleCardClick(cardElement, petId) {
         }
         catch (error) {
             console.error("Error loading pet:", error);
+            const funFact = document.getElementById('animal-fun-fact');
+            funFact.innerHTML = `<p>Something went wrong. Please, refresh the page</p>`;
         }
     });
 }

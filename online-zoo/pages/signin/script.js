@@ -96,4 +96,6 @@ function handleSignIn(e, loginInput, passInput) {
         }
     });
 }
-document.getElementById("submit-btn").onclick = (e) => handleSignIn(e, document.getElementById("login"), document.getElementById("password"));
+document.getElementById("submit-btn").onclick = (e) => {
+    handleSignIn(e, document.getElementById("login"), document.getElementById("password"));
+};

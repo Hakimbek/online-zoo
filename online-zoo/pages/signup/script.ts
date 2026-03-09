@@ -18,7 +18,7 @@ const validateRegistrationEmail = (email: string): boolean => {
     return emailRegex.test(email.toLowerCase());
 };
 
-const confirmPassword = (pass1: string, pass2: string) => {
+const confirmPassword = (pass1: string, pass2: string): boolean => {
     return pass1 === pass2;
 }
 
@@ -150,10 +150,12 @@ async function handleSignUp(e: Event, loginInput: HTMLInputElement, passInput: H
     }
 }
 
-(document.getElementById("submit-btn") as HTMLButtonElement).onclick = (e) => handleSignUp(
-    e,
-    document.getElementById("login") as HTMLInputElement,
-    document.getElementById("password") as HTMLInputElement,
-    document.getElementById("name") as HTMLInputElement,
-    document.getElementById("email") as HTMLInputElement,
-);
+(document.getElementById("submit-btn") as HTMLButtonElement).onclick = (e): void => {
+    handleSignUp(
+        e,
+        document.getElementById("login") as HTMLInputElement,
+        document.getElementById("password") as HTMLInputElement,
+        document.getElementById("name") as HTMLInputElement,
+        document.getElementById("email") as HTMLInputElement,
+    );
+}
