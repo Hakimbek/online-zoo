@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Khakim Bakhramov">
+    <meta name="description" content="Online ZOO">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="../../assets/icons/favicon.svg">
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="../../utils/navigate.js" defer></script>
+    <script type="module" src="../../utils/initMobileNav.js" defer></script>
+    <script type="module" src="../../utils/initUserProfile.js" defer></script>
+    <title>Online ZOO</title>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+    <h1 class="header__title">Online ZOO</h1>
+
+    <!-- LOGO ICON -->
+    <a class="header__link" href="../about/index.html" data-page="about">
+        <img src="../../assets/icons/zoo-dark.svg" alt="Logo of Online ZOO">
+    </a>
+    <!-- END OF LOGO ICON -->
+
+    <!-- BURGER ICON -->
+    <button class="header__burger-btn">
+        <img src="../../assets/icons/hamburger.svg" alt="Hamburger menu">
+    </button>
+    <!-- END OF BURGER ICON -->
+
+    <!-- MOBILE NAV MENU -->
+    <div class="header__mobile-nav">
+        <div class="header__close-btn-wrapper">
+            <button class="header__close-btn">
+                <img src="../../assets/icons/close.svg" alt="Hamburger menu">
+            </button>
+        </div>
+        <nav>
+            <ul class="header__list">
+                <li>
+                    <a class="header__link" href="../about/index.html" data-page="about">About</a>
+                </li>
+                <li>
+                    <a class="header__link" href="#" data-page="map">Map</a>
+                </li>
+                <li>
+                    <a class="header__link" href="../zoos/index.html" data-page="zoos">Zoos</a>
+                </li>
+                <li>
+                    <a class="header__link" href="../contact/index.html" data-page="contact">Contact us</a>
+                </li>
+                <li>
+                    <a class="header__link" target="_blank"
+                       href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1">Design</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- END OF MOBILE NAV MENU -->
+
+    <!-- DESKTOP NAV MENU -->
+    <div class="header__desktop-nav">
+        <nav>
+            <ul class="header__list">
+                <li>
+                    <a class="header__link" href="../about/index.html" data-page="about">About</a>
+                </li>
+                <li>
+                    <a class="header__link header__link--active" href="#" data-page="map">Map</a>
+                </li>
+                <li>
+                    <a class="header__link" href="../zoos/index.html" data-page="zoos">Zoos</a>
+                </li>
+                <li>
+                    <a class="header__link" href="../contact/index.html" data-page="contact">Contact us</a>
+                </li>
+                <li>
+                    <a class="header__link" target="_blank"
+                       href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1">Design</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__socials">
+            <a class="header__link" target="_blank" href="https://www.youtube.com/">
+                <img src="../../assets/icons/youtube.svg" alt="Logo of Youtube channel of Online ZOO">
+            </a>
+            <a class="header__link" target="_blank" href="https://www.instagram.com/?hl=en">
+                <img src="../../assets/icons/instagram.svg" alt="Logo of Instagram account of Online ZOO">
+            </a>
+            <a class="header__link" target="_blank" href="https://www.facebook.com/?locale=ru_RU">
+                <img src="../../assets/icons/facebook.svg" alt="Logo of Facebook page of Online ZOO">
+            </a>
+            <button class="user__icon-btn" id="user__icon-btn">
+                <img src="../../assets/icons/user.svg" alt="User Account Icon">
+                <p id="user-name">Hakim</p>
+            </button>
+        </div>
+    </div>
+    <!-- END OF DESKTOP NAV MENU -->
+</header>
+<!-- END OF HEADER -->
+
+<main id="main">
+    <div class="auth-popup__overlay" id="auth-popup__overlay"></div>
+    <section class="auth-popup" id="auth-popup"></section>
+
+    <section class="map">
+        <h2 class="map__title">Find where are the animals live</h2>
+        <div class="map__content">
+            <img class="map__image" src="../../assets/icons/map.svg" alt="Map of the zoo">
+
+            <div class="map__animal map__animal--lion" onclick="goToPage('../zoos/index.html')">
+                <img class="map__icon map__icon--default" src="../../assets/icons/lion.svg" alt="Lion icon">
+                <img class="map__icon map__icon--hover" src="../../assets/icons/lion-hover.svg" alt="Lion hover icon">
+            </div>
+
+            <div class="map__animal map__animal--gorilla" onclick="goToPage('../zoos/index.html')">
+                <img class="map__icon map__icon--default" src="../../assets/icons/gorilla.svg" alt="Gorilla icon">
+                <img class="map__icon map__icon--hover" src="../../assets/icons/gorilla-hover.svg"
+                     alt="Gorilla hover icon">
+            </div>
+
+            <div class="map__animal map__animal--lemur" onclick="goToPage('../zoos/index.html')">
+                <img class="map__icon map__icon--default" src="../../assets/icons/lemur.svg" alt="Lemur icon">
+                <img class="map__icon map__icon--hover" src="../../assets/icons/lemur-hover.svg" alt="Lemur hover icon">
+            </div>
+
+            <div class="map__animal map__animal--panda" onclick="goToPage('../zoos/index.html')">
+                <img class="map__icon map__icon--default" src="../../assets/icons/panda.svg" alt="Lemur icon">
+                <img class="map__icon map__icon--hover" src="../../assets/icons/panda-hover.svg" alt="Lemur hover icon">
+            </div>
+
+            <div class="map__animal map__animal--tiger" onclick="goToPage('../zoos/index.html')">
+                <img class="map__icon map__icon--default" src="../../assets/icons/tiger.svg" alt="Lemur icon">
+                <img class="map__icon map__icon--hover" src="../../assets/icons/tiger-hover.svg" alt="Lemur hover icon">
+            </div>
+
+            <div class="map__animal map__animal--koala" onclick="goToPage('../zoos/index.html')">
+                <img class="map__icon map__icon--default" src="../../assets/icons/koala.svg" alt="Lemur icon">
+                <img class="map__icon map__icon--hover" src="../../assets/icons/koala-hover.svg" alt="Lemur hover icon">
+            </div>
+
+            <div class="map__animal map__animal--crocodile" onclick="goToPage('../zoos/index.html')">
+                <img class="map__icon map__icon--default" src="../../assets/icons/crocodile.svg" alt="Lemur icon">
+                <img class="map__icon map__icon--hover" src="../../assets/icons/crocodile-hover.svg"
+                     alt="Lemur hover icon">
+            </div>
+
+            <div class="map__animal map__animal--eagle" onclick="goToPage('../zoos/index.html')">
+                <img class="map__icon map__icon--default" src="../../assets/icons/eagle.svg" alt="Lemur icon">
+                <img class="map__icon map__icon--hover" src="../../assets/icons/eagle-hover.svg" alt="Lemur hover icon">
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer__top">
+        <!-- FOOTER LOGO -->
+        <div class="footer__logo">
+            <a class="footer__link" href="#" data-page="about">
+                <img src="../../assets/icons/zoo-white.svg" alt="Logo of Online ZOO">
+            </a>
+            <a class="footer__link" target="_blank" href="#">
+                <img src="../../assets/icons/yem-digital.svg" alt="Logo of Yem Digital">
+            </a>
+            <a class="footer__link" target="_blank" href="https://rs.school/">
+                <img src="../../assets/icons/rs-school.svg" alt="Logo of RSSchool">
+            </a>
+        </div>
+        <!-- END OF FOOTER LOGO -->
+
+        <!-- FOOTER NAV -->
+        <ul class="footer__nav-list">
+            <li>
+                <a class="footer__nav-link" href="../about/index.html" data-page="about">About</a>
+            </li>
+            <li>
+                <a class="footer__nav-link" href="#" data-page="map">Map</a>
+            </li>
+            <li>
+                <a class="footer__nav-link" href="../zoos/index.html" data-page="zoos">Zoos</a>
+            </li>
+            <li>
+                <a class="footer__nav-link" href="../contact/index.html" data-page="contact">Contact us</a>
+            </li>
+        </ul>
+        <!-- END OF FOOTER NAV -->
+
+        <button class="footer__donate-btn">
+            Donate for volunteers
+            <img src="../../assets/icons/arrow-right.svg" alt="Right Arrow">
+        </button>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="footer__top-hr"></div>
+
+        <!-- FOOTER SOCIALS -->
+        <div class="footer__socials">
+            <a class="header__link" target="_blank" href="https://www.youtube.com/">
+                <img src="../../assets/icons/youtube.svg" alt="Logo of Youtube channel of Online ZOO">
+            </a>
+            <a class="header__link" target="_blank" href="https://www.instagram.com/?hl=en">
+                <img src="../../assets/icons/instagram.svg" alt="Logo of Instagram account of Online ZOO">
+            </a>
+            <a class="header__link" target="_blank" href="https://www.facebook.com/?locale=ru_RU">
+                <img src="../../assets/icons/facebook.svg" alt="Logo of Facebook page of Online ZOO">
+            </a>
+        </div>
+        <!-- END OF FOOTER SOCIALS -->
+
+        <div class="footer__bottom-hr"></div>
+
+        <!-- FOOTER COPYRIGHT -->
+        <ul class="footer__copyright-list">
+            <li>
+                <a class="footer__copyright-link" target="_blank" href="#">© 2021 DinaK</a>
+            </li>
+            <li>
+                <a class="footer__copyright-link" target="_blank" href="#">© Yem Digital</a>
+            </li>
+            <li>
+                <a class="footer__copyright-link" target="_blank" href="https://rs.school/">© RSSchool</a>
+            </li>
+        </ul>
+        <!-- END OF FOOTER COPYRIGHT -->
+    </div>
+</footer>
+<!-- END OF FOOTER -->
+</body>
+</html>
