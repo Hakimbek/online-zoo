@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg" href="../../assets/icons/favicon.svg">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="../../utils/navigate.js" defer></script>
+    <script type="module" src="../../utils/initMobileNav.js" defer></script>
+    <script type="module" src="../../utils/initPetsCarousel.js" defer></script>
+    <script type="module" src="../../utils/initFeedbackCarousel.js" defer></script>
+    <script type="module" src="../../utils/initUserProfile.js" defer></script>
     <title>Online ZOO</title>
 </head>
 <body>
@@ -89,6 +94,10 @@
             <a class="header__link" target="_blank" href="https://www.facebook.com/?locale=ru_RU">
                 <img src="../../assets/icons/facebook.svg" alt="Logo of Facebook page of Online ZOO">
             </a>
+            <button class="user__icon-btn" id="user__icon-btn">
+                <img src="../../assets/icons/user.svg" alt="User Account Icon">
+                <p id="user-name">Hakim</p>
+            </button>
         </div>
     </div>
     <!-- END OF DESKTOP NAV MENU -->
@@ -96,6 +105,9 @@
 <!-- END OF HEADER -->
 
 <main id="main">
+    <div class="auth-popup__overlay" id="auth-popup__overlay"></div>
+    <section class="auth-popup" id="auth-popup"></section>
+
     <!-- ABOUT -->
     <section class="about">
         <div class="about__header">
@@ -135,7 +147,7 @@
             </div>
         </div>
         <div class="welcome__bottom">
-            <img src="../../assets/images/eagle.png" alt="How we work Image">
+            <img src="../../assets/images/Sam%20&%20Lora.png" alt="How we work Image">
             <div>
                 <h2 class="welcome__title">How we work</h2>
                 <p class="welcome__content">Online Zoo is a nonprofit committed to inspiring awareness and preservation
@@ -186,81 +198,8 @@
             </button>
         </div>
         <div class="pets__carousel">
-            <div class="pets__cards" id="pets-cards">
-                <div class="pets__card-wrapper">
-                    <div class="pets__card" onclick="goToPage('../zoos/index.html')">
-                        <img src="../../assets/images/koala.png" alt="Koala Image">
-                        <span class="pets__card-name">Liz</span>
-                        <h2 class="pets__card-title">Australian Koala</h2>
-                        <p class="pets__card-text">The elevated walkways bring you to eye level with the koalas as they
-                            perch in their forest.</p>
-                        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
-                    </div>
-                    <div class="pets__card pets__card--hidden" onclick="goToPage('../zoos/index.html')">
-                        <img src="../../assets/images/gorilla.png" alt="Gorilla Image">
-                        <span class="pets__card-name">Glen</span>
-                        <h2 class="pets__card-title">Gorilla in Congo</h2>
-                        <p class="pets__card-text">Variety of snacks very important for the healthy life of gorillas and
-                            his plenty of babies.</p>
-                        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
-                    </div>
-                </div>
-                <div class="pets__card-wrapper">
-                    <div class="pets__card" onclick="goToPage('../zoos/index.html')">
-                        <img src="../../assets/images/giant-panda.png" alt="Panda Image">
-                        <span class="pets__card-name">Lucas</span>
-                        <h2 class="pets__card-title">Giant Panda</h2>
-                        <p class="pets__card-text">Native to central China, giant pandas have come to symbolize
-                            vulnerable
-                            species.</p>
-                        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
-                    </div>
-                    <div class="pets__card pets__card--hidden" onclick="goToPage('../zoos/index.html')">
-                        <img src="../../assets/images/eagles.png" alt="Eagles Image">
-                        <span class="pets__card-name">Sam & Lora</span>
-                        <h2 class="pets__card-title">West End Bald Eagles</h2>
-                        <p class="pets__card-text">Pair of eagle parents lay and protect eggs, feed their chicks and
-                            teach them to hunt and fly.</p>
-                        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
-                    </div>
-                </div>
-                <div class="pets__card-wrapper">
-                    <div class="pets__card" onclick="goToPage('../zoos/index.html')">
-                        <img src="../../assets/images/lemur.png" alt="Lemur Image">
-                        <span class="pets__card-name">Andy</span>
-                        <h2 class="pets__card-title">Madagascarian Lemur</h2>
-                        <p class="pets__card-text">Lemurs are considered the world’s most endangered group of
-                            mammals.</p>
-                        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
-                    </div>
-                    <div class="pets__card pets__card--hidden" onclick="goToPage('../zoos/index.html')">
-                        <img src="../../assets/images/sleeping-panda.png" alt="Monkey eating banana Image">
-                        <span class="pets__card-name">Mike</span>
-                        <h2 class="pets__card-title">Chinese Alligator</h2>
-                        <p class="pets__card-text">From nose to tail, belly to back, hard scales protect this petite
-                            alligator. </p>
-                        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
-                    </div>
-                </div>
-                <div class="pets__card-wrapper">
-                    <div class="pets__card" onclick="goToPage('../zoos/index.html')">
-                        <img src="../../assets/images/lion.png" alt="Lion Image">
-                        <span class="pets__card-name">Shake</span>
-                        <h2 class="pets__card-title">African Lion</h2>
-                        <p class="pets__card-text">Lions roam the savannas and grasslands of Africa, hunting and raising
-                            cubs in the pride.</p>
-                        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
-                    </div>
-                    <div class="pets__card pets__card--hidden" onclick="goToPage('../zoos/index.html')">
-                        <img src="../../assets/images/feeding-lion.png" alt="Lion Image">
-                        <span class="pets__card-name">Senja</span>
-                        <h2 class="pets__card-title">Sumatran Tiger</h2>
-                        <p class="pets__card-text">Sumatran Tigers are the smallest of the five sub-species, and are
-                            found in Indonesia.</p>
-                        <button class="pets__card-button">VIEW LIVE CAM<span></span></button>
-                    </div>
-                </div>
-            </div>
+            <div class="pets__loader" id="pets-loader"></div>
+            <div class="pets__cards" id="pets-cards"></div>
         </div>
         <button class="pets__favourite-btn" onclick="goToPage('../zoos/index.html')">
             choose your favourite
@@ -350,101 +289,8 @@
                 Below you can leave your own feedback, or simply view feedback from past clients. </p>
         </div>
         <div class="thoughts__carousel">
-            <div class="thoughts__cards" id="thoughts-cards">
-                <div class="thoughts__card-wrapper">
-                    <div class="thoughts__card">
-                        <div>
-                            <img class="thoughts__quote" src="../../assets/icons/quote.svg" alt="Quote Icon">
-                            <h3 class="thoughts__card-title">New Jersey, November 2020</h3>
-                        </div>
-                        <p class="thoughts__card-text">I am writing to thank you for your mission is to bring people
-                            closer to nature! Like myself, children
-                            were very impressed by the opportunity to explore the life of incredible animals in
-                            real-time. </p>
-                        <p class="thoughts__card-author">Karen Maithlan</p>
-                    </div>
-                    <div class="thoughts__card">
-                        <div>
-                            <img class="thoughts__quote" src="../../assets/icons/quote.svg" alt="Quote Icon">
-                            <h3 class="thoughts__card-title">Toronto, November 2020</h3>
-                        </div>
-                        <p class="thoughts__card-text">We so enjoy the ever-evolving selection of animals from around
-                            the globe. THANK YOU for sharing these fascinating animal friends with us so that we may
-                            learn and increase our understanding of the animal kingdom.</p>
-                        <p class="thoughts__card-author">Carol Larsen</p>
-                    </div>
-                </div>
-                <div class="thoughts__card-wrapper">
-                    <div class="thoughts__card">
-                        <div>
-                            <img class="thoughts__quote" src="../../assets/icons/quote.svg" alt="Quote Icon">
-                            <h3 class="thoughts__card-title">London, February 2020</h3>
-                        </div>
-                        <p class="thoughts__card-text">A fantastic experience for kids and adults alike! If anyone is
-                            looking for an attraction that educates people on wild animals – it's for you! I highly
-                            recommend seeing for yourself the variety of animals on your screen.</p>
-                        <p class="thoughts__card-author">C. Stockman</p>
-                    </div>
-                    <div class="thoughts__card">
-                        <div>
-                            <img class="thoughts__quote" src="../../assets/icons/quote.svg" alt="Quote Icon">
-                            <h3 class="thoughts__card-title">Amsterdam, June 2020</h3>
-                        </div>
-                        <p class="thoughts__card-text">I want to thank you for the amazing sites you find to put your
-                            cameras to let each of us see things that we would probably never see on our own. There are
-                            so many positives on Zoo Online and I'm grateful for it.</p>
-                        <p class="thoughts__card-author">Tomas Ray</p>
-                    </div>
-                </div>
-                <div class="thoughts__card-wrapper">
-                    <div class="thoughts__card">
-                        <div>
-                            <img class="thoughts__quote" src="../../assets/icons/quote.svg" alt="Quote Icon">
-                            <h3 class="thoughts__card-title">New Jersey, November 2020</h3>
-                        </div>
-                        <p class="thoughts__card-text">I am writing to thank you for your mission is to bring people
-                            closer to nature! Like myself, children
-                            were very impressed by the opportunity to explore the life of incredible animals in
-                            real-time. </p>
-                        <p class="thoughts__card-author">Karen Maithlan</p>
-                    </div>
-                    <div class="thoughts__card">
-                        <div>
-                            <img class="thoughts__quote" src="../../assets/icons/quote.svg" alt="Quote Icon">
-                            <h3 class="thoughts__card-title">New Jersey, November 2020</h3>
-                        </div>
-                        <p class="thoughts__card-text">I am writing to thank you for your mission is to bring people
-                            closer to nature! Like myself, children
-                            were very impressed by the opportunity to explore the life of incredible animals in
-                            real-time. </p>
-                        <p class="thoughts__card-author">Karen Maithlan</p>
-                    </div>
-                </div>
-                <div class="thoughts__card-wrapper">
-                    <div class="thoughts__card">
-                        <div>
-                            <img class="thoughts__quote" src="../../assets/icons/quote.svg" alt="Quote Icon">
-                            <h3 class="thoughts__card-title">New Jersey, November 2020</h3>
-                        </div>
-                        <p class="thoughts__card-text">I am writing to thank you for your mission is to bring people
-                            closer to nature! Like myself, children
-                            were very impressed by the opportunity to explore the life of incredible animals in
-                            real-time. </p>
-                        <p class="thoughts__card-author">Karen Maithlan</p>
-                    </div>
-                    <div class="thoughts__card">
-                        <div>
-                            <img class="thoughts__quote" src="../../assets/icons/quote.svg" alt="Quote Icon">
-                            <h3 class="thoughts__card-title">New Jersey, November 2020</h3>
-                        </div>
-                        <p class="thoughts__card-text">I am writing to thank you for your mission is to bring people
-                            closer to nature! Like myself, children
-                            were very impressed by the opportunity to explore the life of incredible animals in
-                            real-time. </p>
-                        <p class="thoughts__card-author">Karen Maithlan</p>
-                    </div>
-                </div>
-            </div>
+            <div class="thoughts__loader" id="thoughts-loader"></div>
+            <div class="thoughts__cards" id="thoughts-cards"></div>
         </div>
         <div class="thoughts__nav">
             <button id="thoughts-prev-btn">
@@ -571,7 +417,8 @@
                 </div>
             </div>
         </div>
-        <button class="love__button" onclick="goToPage('../zoos/index.html')">CHOOSE YOUR FAVOURITE<span></span>
+        <button class="love__button" onclick="goToPage('../zoos/index.html')">
+            Choose Your Favourite<span></span>
         </button>
     </section>
     <!-- END OF LOVE -->

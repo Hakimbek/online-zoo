@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg" href="../../assets/icons/favicon.svg">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="../../utils/initMobileNav.js" defer></script>
+    <script type="module" src="../../utils/navigate.js" defer></script>
+    <script type="module" src="../../utils/initUserProfile.js" defer></script>
     <title>Online ZOO</title>
 </head>
 <body>
@@ -89,6 +92,10 @@
             <a class="header__link" target="_blank" href="https://www.facebook.com/?locale=ru_RU">
                 <img src="../../assets/icons/facebook.svg" alt="Logo of Facebook page of Online ZOO">
             </a>
+            <button class="user__icon-btn" id="user__icon-btn">
+                <img src="../../assets/icons/user.svg" alt="User Account Icon">
+                <p id="user-name">Hakim</p>
+            </button>
         </div>
     </div>
     <!-- END OF DESKTOP NAV MENU -->
@@ -96,6 +103,9 @@
 <!-- END OF HEADER -->
 
 <main id="main">
+    <div class="auth-popup__overlay" id="auth-popup__overlay"></div>
+    <section class="auth-popup" id="auth-popup"></section>
+
     <section class="contact">
         <img class="contact__image" src="../../assets/images/contact.png" alt="Touch The Animal Image">
         <div class="contact__content">

@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg" href="../../assets/icons/favicon.svg">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="../../utils/navigate.js" defer></script>
+    <script type="module" src="../../utils/initMobileNav.js" defer></script>
+    <script type="module" src="../../utils/initUserProfile.js" defer></script>
     <title>Online ZOO</title>
 </head>
 <body>
@@ -16,7 +19,7 @@
     <h1 class="header__title">Online ZOO</h1>
 
     <!-- LOGO ICON -->
-    <a class="header__link" href="#" data-page="about">
+    <a class="header__link" href="../about/index.html" data-page="about">
         <img src="../../assets/icons/zoo-dark.svg" alt="Logo of Online ZOO">
     </a>
     <!-- END OF LOGO ICON -->
@@ -89,6 +92,10 @@
             <a class="header__link" target="_blank" href="https://www.facebook.com/?locale=ru_RU">
                 <img src="../../assets/icons/facebook.svg" alt="Logo of Facebook page of Online ZOO">
             </a>
+            <button class="user__icon-btn" id="user__icon-btn">
+                <img src="../../assets/icons/user.svg" alt="User Account Icon">
+                <p id="user-name">Hakim</p>
+            </button>
         </div>
     </div>
     <!-- END OF DESKTOP NAV MENU -->
@@ -96,6 +103,35 @@
 <!-- END OF HEADER -->
 
 <main id="main">
+    <div class="auth-popup__overlay" id="auth-popup__overlay"></div>
+    <section class="auth-popup" id="auth-popup"></section>
+
+    <aside class="side-bar">
+        <div class="side-bar__content">
+            <div class="side-bar__header">
+                <div class="side-bar__camera-icon">
+                    LIVE <img src="../../assets/icons/camera.svg" alt="Camera Icon">
+                </div>
+                <button class="side-bar__expand-btn" id="sidebar-expand-btn">
+                    <img src="../../assets/icons/expand.svg" alt="Camera Icon">
+                </button>
+            </div>
+            <div class="side-bar__cards" id="side-bar__cards">
+                <div id="side-bar-status" class="status-container">
+                    <div class="loader"></div>
+                </div>
+            </div>
+            <div class="side-bar__footer">
+                <button class="side-bar__up-btn" id="sidebar-up">
+                    <img src="../../assets/icons/expand.svg" alt="Camera Icon">
+                </button>
+                <button class="side-bar__down-btn" id="sidebar-down">
+                    <img src="../../assets/icons/expand.svg" alt="Camera Icon">
+                </button>
+            </div>
+        </div>
+    </aside>
+
     <section class="animal__header">
         <h2>live panda cams</h2>
         <button class="animal__header-button">
@@ -103,27 +139,7 @@
             <img src="../../assets/icons/arrow-right.svg" alt="Right Arrow icon">
         </button>
     </section>
-    <section class="gallery">
-        <div class="gallery__main">
-            <img id="main-preview" src="../../assets/images/panda-cam-1.png" alt="Featured Animal">
-        </div>
-        <p class="gallery-title">MORE LIVE VIEWS</p>
-        <div class="gallery__thumbs">
-            <button class="thumb-btn" onclick="previewImage(this)">
-                <img src="../../assets/images/panda-cam-1.png" alt="Panda">
-            </button>
-            <button class="thumb-btn" onclick="previewImage(this)">
-                <img src="../../assets/images/panda-cam-2.png" alt="Eagle">
-            </button>
-            <button class="thumb-btn" onclick="previewImage(this)">
-                <img src="../../assets/images/panda-cam-3.png" alt="Gorilla">
-            </button>
-        </div>
-        <button class="animal__gallery-button">
-            DONATE NOW
-            <img src="../../assets/icons/arrow-right.svg" alt="Right Arrow icon">
-        </button>
-    </section>
+    <section class="gallery" id="gallery"></section>
     <section class="donation">
         <div class="donation__top">
             <h2 class="donation__top-title">make the Bamboo Donation!</h2>
@@ -142,55 +158,10 @@
             </button>
         </div>
     </section>
-    <section class="animal__fun-fact">
-        <h2 class="animal__name">did you know?</h2>
-        <p>Pandas are often seen eating in a relaxed sitting posture, with their hind legs stretched out before them.
-            They may appear sedentary, but they are skilled tree-climbers and efficient swimmers.</p>
-    </section>
-    <section class="animal__characteristics">
-        <img src="../../assets/images/sleeping-panda.png" alt="Sleeping panda">
-        <div>
-            <div>
-                <p>Common name:</p>
-                <p>Giant Panda</p>
-            </div>
-            <div>
-                <p>Scientific name:</p>
-                <p>Ailuropoda melanoleuca</p>
-            </div>
-            <div>
-                <p>Type:</p>
-                <p>Herbivore</p>
-            </div>
-            <div>
-                <p>Size:</p>
-                <p>4 to 5 feet</p>
-            </div>
-            <div>
-                <p>Diet:</p>
-                <p>Omnivore</p>
-            </div>
-            <div>
-                <p>Habitat:</p>
-                <p>Forests</p>
-            </div>
-            <div>
-                <p>Range:</p>
-                <p>Eastern Asia</p>
-                <button onclick="goToPage('../map/index.html')">VIEW MAP<span></span></button>
-            </div>
-        </div>
-    </section>
-    <section class="animal__description">
-        <p>Giant pandas are very unusual animals that eat almost exclusively bamboo, which is very low in nutrients.
-            Because of this, they have many unique adaptations for their low-energy lifestyle. Giant pandas are
-            solitary. They have a highly developed sense of smell that males use to avoid each other and to find females
-            for mating in the spring. After a five-month pregnancy, females give birth to a cub or two, though they
-            cannot care for both twins. The blind infants weigh only 5 ounces at birth and cannot crawl until they reach
-            three months of age. They are born white, and develop their much loved coloring later. Habitat loss is the
-            primary threat to this species. Its popularity around the world has helped the giant panda become the focus
-            of successful conservation programs.</p>
-    </section>
+    <section class="animal__fun-fact" id="animal-fun-fact"></section>
+    <section class="animal__characteristics" id="animal-characteristics"></section>
+    <section class="animal__description" id="animal-description"></section>
+    <section id="animal-error"></section>
 </main>
 
 <!-- FOOTER -->
